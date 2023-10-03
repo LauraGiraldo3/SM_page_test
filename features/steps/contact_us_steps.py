@@ -2,7 +2,6 @@ from behave import step
 from dotenv import load_dotenv
 from pom.contact_us_page import ContactUsPage
 import os
-import time
 
 
 load_dotenv()
@@ -12,17 +11,11 @@ load_dotenv()
 def fill_form_correctly(context):
     contact_us_page = ContactUsPage(context.browser_interactions)
     contact_us_page.fill_name_input(os.getenv("NAME"))
-    time.sleep(1)
     contact_us_page.fill_email_input(os.getenv("EMAIL"))
-    time.sleep(1)
     contact_us_page.fill_company_input(os.getenv("COMPANY"))
-    time.sleep(1)
     contact_us_page.fill_number_input(os.getenv("NUMBER"))
-    time.sleep(1)
     contact_us_page.fill_message_input(os.getenv("MESSAGE"))
-    time.sleep(1)
     contact_us_page.check_terms_cond()
-    time.sleep(1)
     contact_us_page.click_send()
 
 
@@ -36,17 +29,11 @@ def success_message_is_visible(context):
 def fill_name_invalid_data(context):
     contact_us_page = ContactUsPage(context.browser_interactions)
     contact_us_page.fill_name_input(os.getenv("NUMBER"))
-    time.sleep(1)
     contact_us_page.fill_email_input(os.getenv("EMAIL"))
-    time.sleep(1)
     contact_us_page.fill_company_input(os.getenv("COMPANY"))
-    time.sleep(1)
     contact_us_page.fill_number_input(os.getenv("NUMBER"))
-    time.sleep(1)
     contact_us_page.fill_message_input(os.getenv("MESSAGE"))
-    time.sleep(1)
     contact_us_page.check_terms_cond()
-    time.sleep(1)
     contact_us_page.click_send()
 
 
@@ -60,17 +47,11 @@ def error_message_is_visible(context):
 def fill_email_invalid_data(context):
     contact_us_page = ContactUsPage(context.browser_interactions)
     contact_us_page.fill_name_input(os.getenv("NAME"))
-    time.sleep(1)
     contact_us_page.fill_email_input(os.getenv("NAME"))
-    time.sleep(1)
     contact_us_page.fill_company_input(os.getenv("COMPANY"))
-    time.sleep(1)
     contact_us_page.fill_number_input(os.getenv("NUMBER"))
-    time.sleep(1)
     contact_us_page.fill_message_input(os.getenv("MESSAGE"))
-    time.sleep(1)
     contact_us_page.check_terms_cond()
-    time.sleep(1)
     contact_us_page.click_send()
 
 
@@ -78,17 +59,11 @@ def fill_email_invalid_data(context):
 def fill_company_invalid_data(context):
     contact_us_page = ContactUsPage(context.browser_interactions)
     contact_us_page.fill_name_input(os.getenv("NAME"))
-    time.sleep(1)
     contact_us_page.fill_email_input(os.getenv("EMAIL"))
-    time.sleep(1)
     contact_us_page.fill_company_input(" ")
-    time.sleep(1)
     contact_us_page.fill_number_input(os.getenv("NUMBER"))
-    time.sleep(1)
     contact_us_page.fill_message_input(os.getenv("MESSAGE"))
-    time.sleep(1)
     contact_us_page.check_terms_cond()
-    time.sleep(1)
     contact_us_page.click_send()
 
 
@@ -96,17 +71,11 @@ def fill_company_invalid_data(context):
 def fill_number_invalid_data(context):
     contact_us_page = ContactUsPage(context.browser_interactions)
     contact_us_page.fill_name_input(os.getenv("NAME"))
-    time.sleep(1)
     contact_us_page.fill_email_input(os.getenv("EMAIL"))
-    time.sleep(1)
     contact_us_page.fill_company_input(os.getenv("COMPANY"))
-    time.sleep(1)
     contact_us_page.fill_number_input(os.getenv("NAME"))
-    time.sleep(1)
     contact_us_page.fill_message_input(os.getenv("MESSAGE"))
-    time.sleep(1)
     contact_us_page.check_terms_cond()
-    time.sleep(1)
     contact_us_page.click_send()
 
 
@@ -114,17 +83,11 @@ def fill_number_invalid_data(context):
 def fill_message_invalid_data(context):
     contact_us_page = ContactUsPage(context.browser_interactions)
     contact_us_page.fill_name_input(os.getenv("NAME"))
-    time.sleep(1)
     contact_us_page.fill_email_input(os.getenv("EMAIL"))
-    time.sleep(1)
     contact_us_page.fill_company_input(os.getenv("COMPANY"))
-    time.sleep(1)
     contact_us_page.fill_number_input(os.getenv("NUMBER"))
-    time.sleep(1)
     contact_us_page.fill_message_input(" ")
-    time.sleep(1)
     contact_us_page.check_terms_cond()
-    time.sleep(1)
     contact_us_page.click_send()
 
 
@@ -132,13 +95,8 @@ def fill_message_invalid_data(context):
 def dont_check_terms_cond(context):
     contact_us_page = ContactUsPage(context.browser_interactions)
     contact_us_page.fill_name_input(os.getenv("NAME"))
-    time.sleep(1)
     contact_us_page.fill_email_input(os.getenv("EMAIL"))
-    time.sleep(1)
     contact_us_page.fill_company_input(os.getenv("COMPANY"))
-    time.sleep(1)
     contact_us_page.fill_number_input(os.getenv("NUMBER"))
-    time.sleep(1)
     contact_us_page.fill_message_input(os.getenv("MESSAGE"))
-    time.sleep(1)
     contact_us_page.click_send()
