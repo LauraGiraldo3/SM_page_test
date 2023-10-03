@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -28,5 +30,7 @@ class BrowserInteractions:
     def element_is_visible(self, strategy: str, selector: str):
         return WebDriverWait(self._driver, self.time_out).until(EC.visibility_of_element_located((cast_strategy(strategy), selector)))
 
-    def scroll(self):
-        self._driver.execute_script("window.scrollBy(0, 400)")
+    def scroll(self, strategy: str, selector: str):
+        element = WebDriverWait(self._driver, self.time_out).until(EC.element_to_be_clickable((cast_strategy(strategy), selector)))
+        self._driver.execute_script("arguments[0].scrollIntoView();", element)
+        time.sleep(1)

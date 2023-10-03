@@ -1,3 +1,5 @@
+import time
+
 from behave import step
 from dotenv import load_dotenv
 from pom.contact_us_page import ContactUsPage

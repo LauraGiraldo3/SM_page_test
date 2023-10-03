@@ -8,6 +8,7 @@ Feature: Contact-us form
     Given the user clicks on menu options
     Given the user clicks on 'Contact us' option
 
+  @correct_form
   Scenario: Fill out the contact-us form successfully
     When the user fills out all the fields correctly
     Then a success message is displayed

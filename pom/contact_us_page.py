@@ -1,3 +1,5 @@
+import time
+
 from utils.browser_interactions import BrowserInteractions
 from pom.locators.contact_us_page_locators import ContactUsPageLocators
 
@@ -28,9 +30,10 @@ class ContactUsPage:
     def fill_message_input(self, message: str):
         self.browser_interactions.input_text(ContactUsPageLocators.HELP_TEXT_INPUT["strategy"],
                                              ContactUsPageLocators.HELP_TEXT_INPUT["selector"], message)
-        self.browser_interactions.scroll()
 
     def check_terms_cond(self):
+        self.browser_interactions.scroll(ContactUsPageLocators.TERMS_COND_CHECKBOX["strategy"],
+                                         ContactUsPageLocators.TERMS_COND_CHECKBOX["selector"])
         self.browser_interactions.click_element(ContactUsPageLocators.TERMS_COND_CHECKBOX["strategy"],
                                                 ContactUsPageLocators.TERMS_COND_CHECKBOX["selector"])
 
