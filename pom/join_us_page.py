@@ -15,7 +15,6 @@ class JoinUsPage:
                                              JoinUsPageLocators.SEARCH_BOX["selector"], job_name)
         self.browser_interactions.click_element(JoinUsPageLocators.SEARCH_BUTTON["strategy"],
                                                 JoinUsPageLocators.SEARCH_BUTTON["selector"])
-        self.browser_interactions.scroll()
         self.browser_interactions.click_element(JoinUsPageLocators.QA_JOB["strategy"],
                                                 JoinUsPageLocators.QA_JOB["selector"])
         return JobPage(self.browser_interactions)

@@ -1,3 +1,5 @@
+import time
+
 from utils.browser_interactions import BrowserInteractions
 from pom.locators.job_page_locators import JobPageLocators
 
@@ -22,6 +24,8 @@ class JobPage:
                                              JobPageLocators.NUMBER_INPUT["selector"], number)
         self.browser_interactions.input_text(JobPageLocators.LOCATION_INPUT["strategy"],
                                              JobPageLocators.LOCATION_INPUT["selector"], city)
+        self.browser_interactions.load_file(JobPageLocators.DROPZONE_INPUT["strategy"],
+                                            JobPageLocators.DROPZONE_INPUT["selector"], "/Users/laura.giraldo/PycharmProjects/SM_page_test/files/montains.pdf")
         self.browser_interactions.input_text(JobPageLocators.LINKEDIN_INPUT["strategy"],
                                              JobPageLocators.LINKEDIN_INPUT["selector"], linkedin)
         self.browser_interactions.input_text(JobPageLocators.MESSAGE_INPUT["strategy"],

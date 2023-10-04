@@ -8,6 +8,7 @@ Feature: Join us section
     Given the user clicks on 'Join us' option
     Given the user select 'QA Automation' job
 
+  @apply_to_job
   Scenario: Fill out the form to apply to QA Automation job
     When the user clicks on Apply Now button
     Then the user can fill out the form

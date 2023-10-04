@@ -13,22 +13,24 @@ Feature: Contact-us form
     When the user fills out all the fields correctly
     Then a success message is displayed
 
-  Scenario: Fill out name field with invalid data
-    When the user fills out name field with invalid data
+  @invalid_data
+  Scenario Outline: Fill out fields with invalid data
+    When the user fills out '<field_name>' with '<invalid_data>'
     Then an error message is displayed
+    Examples:
+    | field_name | invalid_data |
+    | name       | 1234         |
+    | name       | empty        |
+    | email      | laura        |
+    | email      | empty        |
+    | company    | 43@%         |
+    | company    | empty        |
+    | number     | laura        |
+    | number     | empty        |
+    | message    | 45$#%        |
+    | message    | empty        |
 
-  Scenario: Fill out email field with invalid data
-    When the user fills out email field with invalid data
-    Then an error message is displayed
-
-  Scenario: Fill out company field with invalid data
-    When the user fills out company field with invalid data
-    Then an error message is displayed
-
-  Scenario: Fill out message field with invalid data
-    When the user fills out message field with invalid data
-    Then an error message is displayed
-
+  @dont_check_terms
   Scenario: Do not check the terms and conditions checkbox
     When the user do not check the terms and conditions checkbox
     Then an error message is displayed

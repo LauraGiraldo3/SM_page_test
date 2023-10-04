@@ -1,5 +1,3 @@
-import time
-
 from utils.browser_interactions import BrowserInteractions
 from pom.locators.contact_us_page_locators import ContactUsPageLocators
 
@@ -11,29 +9,19 @@ class ContactUsPage:
     def open_contact_us_page(self, url: str):
         self.browser_interactions.open_page(url)
 
-    def fill_name_input(self, name: str):
+    def fill_out_form(self, name: str, email: str, company: str, number: str, message: str):
         self.browser_interactions.input_text(ContactUsPageLocators.NAME_INPUT["strategy"],
                                              ContactUsPageLocators.NAME_INPUT["selector"], name)
-
-    def fill_email_input(self, email: str):
         self.browser_interactions.input_text(ContactUsPageLocators.EMAIL_INPUT["strategy"],
                                              ContactUsPageLocators.EMAIL_INPUT["selector"], email)
-
-    def fill_company_input(self, company: str):
         self.browser_interactions.input_text(ContactUsPageLocators.COMPANY_INPUT["strategy"],
                                              ContactUsPageLocators.COMPANY_INPUT["selector"], company)
-
-    def fill_number_input(self, number: str):
         self.browser_interactions.input_text(ContactUsPageLocators.NUMBER_INPUT["strategy"],
                                              ContactUsPageLocators.NUMBER_INPUT["selector"], number)
-
-    def fill_message_input(self, message: str):
         self.browser_interactions.input_text(ContactUsPageLocators.HELP_TEXT_INPUT["strategy"],
                                              ContactUsPageLocators.HELP_TEXT_INPUT["selector"], message)
 
     def check_terms_cond(self):
-        self.browser_interactions.scroll(ContactUsPageLocators.TERMS_COND_CHECKBOX["strategy"],
-                                         ContactUsPageLocators.TERMS_COND_CHECKBOX["selector"])
         self.browser_interactions.click_element(ContactUsPageLocators.TERMS_COND_CHECKBOX["strategy"],
                                                 ContactUsPageLocators.TERMS_COND_CHECKBOX["selector"])
 

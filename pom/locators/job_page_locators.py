@@ -6,3 +6,4 @@ class JobPageLocators:
     LOCATION_INPUT = {"strategy": "CSS", "selector": "input[placeholder='Your location']"}
     LINKEDIN_INPUT = {"strategy": "CSS", "selector": "input[placeholder='Paste your link']"}
     MESSAGE_INPUT = {"strategy": "CSS", "selector": "input[placeholder='Start typing']"}
+    DROPZONE_INPUT = {"strategy": "XPATH", "selector": "//div[@id='frm_field_17_container']/input[@type='file']"}
