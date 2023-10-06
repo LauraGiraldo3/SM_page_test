@@ -16,14 +16,15 @@ Feature: Contact-us form
   @invalid_data
   Scenario Outline: Fill out fields with invalid data
     When the user fills out '<field_name>' with '<invalid_data>'
-    Then an error message is displayed
+    Then general error message is displayed
+    Then field error message is displayed
     Examples:
     | field_name | invalid_data |
-    | name       | 1234         |
+    | name       | 1234%$       |
     | name       | empty        |
     | email      | laura        |
     | email      | empty        |
-    | company    | 43@%         |
+    | company    | 43@%?        |
     | company    | empty        |
     | number     | laura        |
     | number     | empty        |
@@ -33,4 +34,5 @@ Feature: Contact-us form
   @dont_check_terms
   Scenario: Do not check the terms and conditions checkbox
     When the user do not check the terms and conditions checkbox
-    Then an error message is displayed
+    Then general error message is displayed
+    Then field error message is displayed

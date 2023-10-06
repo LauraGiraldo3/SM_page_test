@@ -1,8 +1,8 @@
-import time
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from langdetect import detect_langs
 
 
 def cast_strategy(strategy: str):
@@ -33,4 +33,17 @@ class BrowserInteractions:
     def load_file(self, strategy: str, selector: str, file_path: str):
         element = WebDriverWait(self._driver, self.time_out).until(EC.presence_of_element_located((cast_strategy(strategy), selector)))
         element.send_keys(file_path)
+
+    def get_page_lan(self):
+        return self._driver.find_element(By.XPATH, "//html").get_attribute('lang')
+
+    def get_element_lan(self, strategy: str, selector: str):
+        elem_text = self._driver.find_element(cast_strategy(strategy), selector).text
+        return detect_langs(elem_text)
+
+    def close_browser(self):
+        self._driver.close()
+
+
+
 

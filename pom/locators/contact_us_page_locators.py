@@ -7,5 +7,5 @@ class ContactUsPageLocators:
     TERMS_COND_CHECKBOX = {"strategy": "ID", "selector": "frm_checkbox_7-0"}
     SEND_BUTTON = {"strategy": "CLASS", "selector": "frm_submit"}
     SUCCESS_MESSAGE = {"strategy": "CLASS", "selector": "frm_message"}
-    ERROR_MESSAGE = {"strategy": "CLASS", "selector": "frm_error_style"}
-    CONTACT_SECTION = {"strategy": "CSS", "selector": "h3[class='pro-heading-inner']"}
+    GENERAL_ERROR_MESSAGE = {"strategy": "CLASS", "selector": "frm_error_style"}
+    FIELD_ERROR_MESSAGE = {"strategy": "XPATH", "selector": "(//div[@class='frm_error'])"}

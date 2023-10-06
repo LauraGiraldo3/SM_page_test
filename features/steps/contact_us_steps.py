@@ -18,7 +18,7 @@ def fill_form_correctly(context):
 @step("a success message is displayed")
 def success_message_is_visible(context):
     contact_us_page = ContactUsPage(context.browser_interactions)
-    assert contact_us_page.success_message_is_visible(), "the test failed"
+    assert contact_us_page.success_message_is_visible(), "Success message is not displayed"
 
 
 @step("the user fills out '{field_name}' with '{invalid_data}'")
@@ -47,7 +47,14 @@ def dont_check_terms_cond(context):
     contact_us_page.click_send()
 
 
-@step("an error message is displayed")
-def error_message_is_visible(context):
+@step("general error message is displayed")
+def general_error_message_is_visible(context):
     contact_us_page = ContactUsPage(context.browser_interactions)
-    assert contact_us_page.error_message_is_visible(), "the test failed"
+    assert contact_us_page.general_error_message(), "General error message is not displayed"
+
+
+@step("field error message is displayed")
+def field_error_message_is_visible(context):
+    contact_us_page = ContactUsPage(context.browser_interactions)
+    assert contact_us_page.field_error_message(), "Field error message is not displayed"
+

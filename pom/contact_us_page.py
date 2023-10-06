@@ -1,3 +1,4 @@
+from selenium.common import TimeoutException
 from utils.browser_interactions import BrowserInteractions
 from pom.locators.contact_us_page_locators import ContactUsPageLocators
 
@@ -30,9 +31,34 @@ class ContactUsPage:
                                                 ContactUsPageLocators.SEND_BUTTON["selector"])
 
     def success_message_is_visible(self):
-        return self.browser_interactions.element_is_visible(ContactUsPageLocators.SUCCESS_MESSAGE["strategy"],
-                                                            ContactUsPageLocators.SUCCESS_MESSAGE["selector"])
+        try:
+            self.browser_interactions.element_is_visible(ContactUsPageLocators.SUCCESS_MESSAGE["strategy"],
+                                                         ContactUsPageLocators.SUCCESS_MESSAGE["selector"])
+        except TimeoutException:
+            return False
+        else:
+            return True
 
-    def error_message_is_visible(self):
-        return self.browser_interactions.element_is_visible(ContactUsPageLocators.ERROR_MESSAGE["strategy"],
-                                                            ContactUsPageLocators.ERROR_MESSAGE["selector"])
+    def general_error_message(self):
+        try:
+            self.browser_interactions.element_is_visible(ContactUsPageLocators.GENERAL_ERROR_MESSAGE["strategy"],
+                                                         ContactUsPageLocators.GENERAL_ERROR_MESSAGE["selector"])
+        except TimeoutException:
+            return False
+        else:
+            return True
+
+    def field_error_message(self):
+        try:
+            self.browser_interactions.element_is_visible(ContactUsPageLocators.FIELD_ERROR_MESSAGE["strategy"],
+                                                         ContactUsPageLocators.FIELD_ERROR_MESSAGE["selector"])
+        except TimeoutException:
+            return False
+        else:
+            page_lan = self.browser_interactions.get_page_lan()
+            element_lan = self.browser_interactions.get_element_lan(ContactUsPageLocators.FIELD_ERROR_MESSAGE["strategy"],
+                                                                    ContactUsPageLocators.FIELD_ERROR_MESSAGE["selector"])
+            if page_lan[:2] == element_lan[0].lang:
+                return True
+            else:
+                return False
